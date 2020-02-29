@@ -1,0 +1,7 @@
+.header {
+    height: auto;
+    padding: 1%;
+    color: whitesmoke;
+    background: linear-gradient(to bottom right, #09203f, #764ba2);
+    text-align: center;
+}
