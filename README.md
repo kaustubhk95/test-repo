@@ -1,6 +1,8 @@
-# NASAAPI
+# NASA-API
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.17.
+Simple Angular application developed using NASA APoD API. It shows new image everyday and allows you to select a date as well to see the image displayed on that day.
+
+Deployed on: https://nasa-apod-appl.herokuapp.com/
 
 ## Development server
 
