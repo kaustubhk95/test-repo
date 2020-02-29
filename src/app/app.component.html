@@ -3,7 +3,7 @@
     <h2>Astronomy Picture of the day</h2>
   </div>
   <br>
-  <div class="card" style="width: 100%;" *ngIf="apiData; else loading">
+  <div class="card" style="width: 100%;" *ngIf="apiData">
     <div class="card-header">
       <div class="form-group row" style="margin-bottom: unset;">
         <label for="apidate" class="col-md-1 col-form-label"><h5>Date:</h5></label>
@@ -21,8 +21,5 @@
       <p class="card-text">{{ apiData.explanation }}</p>
     </div>
   </div>
-  <ng-template #lodaing>
-    Loading data...
-  </ng-template>
 </div>
 <br>
