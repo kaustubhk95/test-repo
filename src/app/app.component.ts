@@ -19,8 +19,8 @@ export class AppComponent implements OnInit {
               private toastr: ToastrService) {}
 
   ngOnInit() {
-    const today = new Date().toISOString().split('T')[0];
-    this.getPicOfDay(today);
+    // const today = new Date().toISOString().split('T')[0];
+    this.getPicOfDay();
   }
 
   dateChange() {
@@ -33,14 +33,14 @@ export class AppComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
-  getPicOfDay(setDate: string) {
+  getPicOfDay(setDate?: string) {
     this.apiService.getAPOD(setDate).subscribe(
       (result: ApiObj) => {
         this.apiData = result;
       },
       error => {
         this.toastr.warning('Date cannot exceed ' + new Date().toISOString().split('T')[0]);
-        this.getPicOfDay(new Date().toISOString().split('T')[0]);
+        this.getPicOfDay();
       }
     );
   }

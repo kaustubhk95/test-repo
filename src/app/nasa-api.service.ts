@@ -12,6 +12,10 @@ export class NasaApiService {
   constructor(private http: HttpClient) { }
 
   public getAPOD(date) {
-    return this.http.get<ApiObj>(this.baseUrl + 'date=' + date + '&api_key=' + this.apiKey);
+    let apodUrl = this.baseUrl + 'api_key=' + this.apiKey;
+    if (date) {
+      apodUrl = apodUrl + '&date=' + date;
+    }
+    return this.http.get<ApiObj>(apodUrl);
   }
 }
