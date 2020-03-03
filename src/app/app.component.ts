@@ -13,13 +13,13 @@ export class AppComponent implements OnInit {
   title = 'NASA-API';
   apiData: ApiObj;
   maxDate = new Date().toISOString().split('T')[0];
+  minDate = new Date(1995, 5, 17).toISOString().split('T')[0];
 
   constructor(private apiService: NasaApiService,
               private sanitizer: DomSanitizer,
               private toastr: ToastrService) {}
 
   ngOnInit() {
-    // const today = new Date().toISOString().split('T')[0];
     this.getPicOfDay();
   }
 
@@ -38,8 +38,12 @@ export class AppComponent implements OnInit {
       (result: ApiObj) => {
         this.apiData = result;
       },
-      error => {
-        this.toastr.warning('Date cannot exceed ' + new Date().toISOString().split('T')[0]);
+      err => {
+        if (err.error.code === 500) {
+          this.toastr.warning('Image not available for this date');
+        } else if (err.error.code === 400) {
+          this.toastr.warning(err.error.msg);
+        }
         this.getPicOfDay();
       }
     );

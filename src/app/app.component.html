@@ -8,7 +8,7 @@
       <div class="form-group row" style="margin-bottom: unset;">
         <label for="apidate" class="col-md-1 col-form-label"><h5>Date:</h5></label>
         <div class="col-md-3">
-          <input type="date" class="form-control" name="apidate" [max]="maxDate" [(ngModel)]="apiData.date" (change)="dateChange()">
+          <input type="date" class="form-control" name="apidate" [(ngModel)]="apiData.date" [min]="minDate" [max]="maxDate" (change)="dateChange()">
         </div>
       </div>
     </div>
