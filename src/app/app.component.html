@@ -6,20 +6,20 @@
   <div class="card" style="width: 100%;" *ngIf="apiData">
     <div class="card-header">
       <div class="form-group row" style="margin-bottom: unset;">
-        <label for="apidate" class="col-md-1 col-form-label"><h5>Date:</h5></label>
+        <label for="apidate" class="col-md-1 col-form-label"><span class="font-weight-bold">Date:</span></label>
         <div class="col-md-3">
-          <input type="date" class="form-control" name="apidate" [(ngModel)]="apiData.date" [min]="minDate" [max]="maxDate" (change)="dateChange()">
+          <input type="date" class="form-control" id="apidate" name="apidate" [(ngModel)]="apiData.date" [min]="minDate" [max]="maxDate" (change)="dateChange()">
         </div>
       </div>
     </div>
-    <a [href]="apiData.hdurl" target="_blank" *ngIf="apiData.media_type=='image'">
+    <a [href]="apiData.hdurl" target="_blank" rel="noopener" *ngIf="apiData.media_type=='image'">
       <img title="Click to view HD image" class="card-img-top" [src]="apiData.url" [alt]="apiData.title">
     </a>
     <div class="embed-responsive embed-responsive-16by9" *ngIf="apiData.media_type=='video'">
       <iframe class="embed-responsive-item" [src]="sanitizeUrl(apiData.url)" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="card-body">
-      <h4 class="card-title">{{ apiData.title }}</h4>
+      <h3 class="card-title">{{ apiData.title }}</h3>
       <p class="blockquote-footer" *ngIf="apiData.copyright">&copy; {{ apiData.copyright }}</p>
       <p class="card-text">{{ apiData.explanation }}</p>
     </div>
