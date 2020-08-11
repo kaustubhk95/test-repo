@@ -6,4 +6,5 @@ export class ApiObj {
     service_version: string;
     title: string;
     url: string;
+    copyright: string;
 }
