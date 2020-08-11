@@ -12,12 +12,15 @@
         </div>
       </div>
     </div>
-    <a [href]="apiData.hdurl" target="_blank" *ngIf="apiData.media_type=='image'"><img title="Click to view HD image" class="card-img-top" [src]="apiData.url" [alt]="apiData.title"></a>
+    <a [href]="apiData.hdurl" target="_blank" *ngIf="apiData.media_type=='image'">
+      <img title="Click to view HD image" class="card-img-top" [src]="apiData.url" [alt]="apiData.title">
+    </a>
     <div class="embed-responsive embed-responsive-16by9" *ngIf="apiData.media_type=='video'">
       <iframe class="embed-responsive-item" [src]="sanitizeUrl(apiData.url)" frameborder="0" allowfullscreen></iframe>
     </div>
     <div class="card-body">
       <h4 class="card-title">{{ apiData.title }}</h4>
+      <p class="blockquote-footer" *ngIf="apiData.copyright">&copy; {{ apiData.copyright }}</p>
       <p class="card-text">{{ apiData.explanation }}</p>
     </div>
   </div>
