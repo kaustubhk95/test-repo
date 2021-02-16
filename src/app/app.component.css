@@ -14,3 +14,12 @@ h2 {
     width: 1rem;
     height: 1rem;;
 }
+
+.form-control {
+    font-size: 1rem;
+    padding: .375rem .75rem;
+}
+
+h3 {
+    font-size: 1.75rem;
+}

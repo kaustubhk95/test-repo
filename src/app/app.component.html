@@ -6,10 +6,10 @@
     <div class="card-header">
       <div class="form-group d-flex justify-content-between row" style="margin-bottom: unset;">
         <!-- <label for="apidate" class="col-md-1 col-form-label"><span class="font-weight-bold">Date:</span></label> -->
-        <div class="col-md-3">
+        <div class="col-md-3 col-9">
           <input type="date" class="form-control" id="apidate" name="apidate" [(ngModel)]="apiData.date" [min]="minDate" [max]="maxDate" (change)="dateChange()">
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1 col-3">
           <button class="btn btn-dark btn-block" (click)="toggleTheme()"><img class="toggle-button-icon" [src]="toggleIcon"></button>
         </div>
       </div>
