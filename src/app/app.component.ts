@@ -14,12 +14,15 @@ export class AppComponent implements OnInit {
   apiData: ApiObj;
   maxDate = new Date().toISOString().split('T')[0];
   minDate = new Date(1995, 5, 17).toISOString().split('T')[0];
+  toggleText = '';
+  toggleIcon = '';
 
   constructor(private apiService: NasaApiService,
               private sanitizer: DomSanitizer,
               private toastr: ToastrService) {}
 
   ngOnInit() {
+    this.setTheme();
     this.getPicOfDay();
   }
 
@@ -47,5 +50,24 @@ export class AppComponent implements OnInit {
         this.getPicOfDay();
       }
     );
+  }
+
+  setTheme() {
+    let localTheme = Number(localStorage.getItem('darkTheme'));
+    if (localTheme > 0) {
+      document.getElementById('theme-style').setAttribute('href', this.apiService.DARK_THEME);
+      this.toggleText = 'Light';
+      this.toggleIcon = '../assets/sun.png';
+    } else {
+      document.getElementById('theme-style').setAttribute('href', this.apiService.LIGHT_THEME);
+      this.toggleText = 'Dark';
+      this.toggleIcon = '../assets/moon.png';
+    }
+  }
+
+  toggleTheme() {
+    let currentTheme =  Number(localStorage.getItem('darkTheme'));
+    localStorage.setItem('darkTheme', (1 - currentTheme).toString());
+    this.setTheme();
   }
 }

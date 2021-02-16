@@ -5,3 +5,12 @@
     background: linear-gradient(#09203f 5%, #4c2574);
     text-align: center;
 }
+
+h2 {
+    font-size: 2rem;
+}
+
+.toggle-button-icon {
+    width: 1rem;
+    height: 1rem;;
+}

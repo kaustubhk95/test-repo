@@ -9,6 +9,10 @@ export class NasaApiService {
 
   private baseUrl = 'https://api.nasa.gov/planetary/apod?';
   private apiKey = 'LIY2Bxd7yG5RweCahGStfzr2E3H13fYtVgaitulq';
+
+  public DARK_THEME = 'assets/dark-bootstrap.min.css';
+  public LIGHT_THEME = 'assets/bootstrap.min.css';
+
   constructor(private http: HttpClient) { }
 
   public getAPOD(date) {
